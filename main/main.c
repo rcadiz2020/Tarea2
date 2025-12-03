@@ -83,8 +83,11 @@ static void sensor_net_task(void *arg)
             #endif
 
             if (ret == ESP_OK) {
-                int send_result = -1;
 
+                ESP_LOGI(TAG, "Enviando: %s", send_buf);
+
+                int send_result = -1;
+                
                 // --- ENVÍO SEGÚN PROTOCOLO ---
                 #if defined(CONFIG_PROTOCOL_TCP)
                     send_result = send(sock, send_buf, len, 0);
